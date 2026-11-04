@@ -1,0 +1,427 @@
+/* ============================================================
+   VISIONS, CHAPTER II — STATIC SITE
+   DESIGN SYSTEM — SINGLE SOURCE OF TRUTH
+   All colors, fonts, radii, etc. are defined here and only here.
+   Tokens are carried over verbatim from the original app's
+   src/index.css. To restyle the site, edit the :root block.
+   ============================================================ */
+
+:root {
+  /* Fonts */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --background: #0b0b0b;
+  --foreground: #ffffff;
+
+  --card: #0b0b0b;
+  --card-foreground: #ffffff;
+  --card-border: #952527;
+
+  --primary: #e39a01;
+  --primary-foreground: #000000;
+
+  --secondary: #fcd221;
+  --secondary-foreground: #000000;
+
+  --muted: #7d4d41;
+  --muted-foreground: #d9d9d9;
+
+  --accent: #ffcc33;
+  --accent-foreground: #1a1a1a;
+
+  --border: #333333;
+  --ring: #ffcc33;
+
+  --radius: 0.5rem;
+}
+
+/* ----------------------------------------------------------
+   RESET
+   ---------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border: 0 solid var(--border);
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--foreground);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------
+   LAYOUT
+   ---------------------------------------------------------- */
+
+.page {
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* ----------------------------------------------------------
+   MASTHEAD
+   ---------------------------------------------------------- */
+
+.masthead {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.masthead a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.masthead img {
+  width: 100%;
+  max-width: 42rem;
+  object-fit: contain;
+}
+
+/* ----------------------------------------------------------
+   CARD
+   ---------------------------------------------------------- */
+
+.card-wrap {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.card {
+  padding: 1.5rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  background-color: var(--card);
+  color: var(--card-foreground);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-hero {
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 28rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.card-hero img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.card-content {
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ----------------------------------------------------------
+   PROSE
+   ---------------------------------------------------------- */
+
+.prose {
+  color: var(--muted-foreground);
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prose--tight {
+  gap: 0.75rem;
+}
+
+.prose p,
+.prose li {
+  text-align: justify;
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  text-align: justify;
+}
+
+.disc {
+  list-style: disc;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.plain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.lead-in {
+  margin-bottom: 0.5rem;
+}
+
+/* ----------------------------------------------------------
+   BUTTONS
+   ---------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  height: 2.75rem;
+  padding-inline: 2rem;
+}
+
+.btn--block {
+  width: 100%;
+  display: flex;
+}
+
+.btn--primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btn--primary:hover {
+  filter: brightness(1.1);
+  color: var(--primary-foreground);
+}
+
+.btn--outline {
+  border: 1px solid var(--card-border);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.btn--outline:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  filter: brightness(1.1);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-link {
+  display: block;
+  text-decoration: none;
+}
+
+/* Inline text buttons used as cross-references inside the FAQ */
+.xref {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease-in-out;
+}
+
+.xref:hover {
+  color: var(--foreground);
+}
+
+/* ----------------------------------------------------------
+   ACCORDION (native <details>)
+   ---------------------------------------------------------- */
+
+.accordion {
+  width: 100%;
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--border);
+}
+
+.accordion__item > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding-block: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.accordion__item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion__item > summary:hover {
+  text-decoration: underline;
+}
+
+.accordion__item > summary::after {
+  /* lucide-react "chevron-down", tinted with currentColor via a mask */
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  content: "";
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: currentColor;
+  transition: transform 0.2s ease-in-out;
+  -webkit-mask: var(--chevron) center / contain no-repeat;
+  mask: var(--chevron) center / contain no-repeat;
+}
+
+.accordion__item[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+.accordion__panel {
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* ----------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------- */
+
+.footer {
+  max-width: 42rem;
+  margin: 2rem auto 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.footer a {
+  color: inherit;
+}
+
+/* ----------------------------------------------------------
+   ACCESSIBILITY
+   ---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
