@@ -13,22 +13,22 @@ and cannot be static, and applications are closed.
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Homepage — the synopsis |
+| `prize.html` | The synopsis — “I popoli del mare” |
 | `info.html` | Prize information — intro text, FAQ accordion, documentation download |
 | `styles.css` | The whole design system; all colour/font/radius tokens live in the `:root` block |
 | `assets/` | ctrlshift logo, logomark, hero image |
 | `Visions_Chapter_II.pdf` | The downloadable call documentation |
-| `favicon.ico`, `robots.txt` | Carried over from the original app |
+| `robots.txt` | Carried over from the original app |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is, without Jekyll |
 
 ## Local preview
 
-Open `index.html` in a browser, or serve the folder so that relative paths and
+Open `prize.html` in a browser, or serve the folder so that relative paths and
 the PDF behave exactly as they will in production:
 
 ```sh
 python3 -m http.server 8000
-# then visit http://localhost:8000
+# then visit http://localhost:8000/prize.html
 ```
 
 ## Deploying to GitHub Pages
@@ -52,7 +52,7 @@ All internal links are relative, so the site works at a repository subpath
 
 ### One thing to update after the first deploy
 
-The `og:image` / `twitter:image` tags in `index.html` and `info.html` currently
+The `og:image` / `twitter:image` tags in `prize.html` and `info.html` currently
 point at `assets/hero-medinet-habu.jpg` as a relative path. Social-media
 crawlers need an absolute URL, so once the final address is known, replace those
 four values with the full URL, e.g.
