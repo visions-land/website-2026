@@ -153,15 +153,25 @@ ul {
   margin-bottom: 3rem;
 }
 
+/* A block-level anchor gives the logo a stable containing block, so the
+   percentage widths below resolve against the container rather than against
+   a shrink-to-fit box. */
 .masthead a {
-  display: inline-block;
+  display: block;
   text-decoration: none;
 }
 
 .masthead img {
   width: 100%;
   max-width: 42rem;
+  margin-inline: auto;
   object-fit: contain;
+}
+
+.masthead--visions img {
+  --logo-scale: 2.54545;
+  width: calc(100% / var(--logo-scale));
+  max-width: calc(42rem / var(--logo-scale));
 }
 
 /* ----------------------------------------------------------
