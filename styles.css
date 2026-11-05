@@ -202,13 +202,13 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 2rem;
   text-align: center;
 }
 
 .card-hero {
   margin-inline: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   width: 100%;
   max-width: 28rem;
   overflow: hidden;
@@ -222,9 +222,9 @@ ul {
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.4;
   letter-spacing: -0.025em;
 }
 
@@ -418,6 +418,66 @@ ul {
 
 .footer a {
   color: inherit;
+}
+
+/* ----------------------------------------------------------
+   NARROW VIEWPORTS (phone, portrait)
+   ---------------------------------------------------------- */
+
+/* Justified text only looks right when the measure is wide enough for the
+   browser to absorb the slack of each line into the word-gaps unnoticed. In
+   portrait the three nested gutters (container + card + card-content) spend
+   ~160px of a ~390px viewport, leaving a ~230px measure — around 30 characters
+   per line, where a single long word tears a visible river open.
+
+   Three things widen the measure in characters: narrower gutters, type that
+   scales down with the viewport, and hyphenation, which gives the justifier
+   break points *inside* long words. The last is what actually closes the gaps;
+   it relies on <html lang="en">, which the pages set. */
+@media (max-width: 640px) {
+  .container {
+    padding-inline: 0.75rem;
+  }
+
+  .card {
+    padding: 0.75rem;
+  }
+
+  .card-header {
+    padding: 0.75rem 0.75rem 1.5rem;
+  }
+
+  .card-content {
+    padding: 0 0.75rem 0.75rem;
+  }
+
+  /* ~13px at 390px wide, growing to the full 16px by the time the viewport is
+     roughly 470px, where the measure no longer needs the help. */
+  .prose,
+  .note,
+  .accordion__panel {
+    font-size: clamp(0.8125rem, 3.4vw, 1rem);
+  }
+
+  .prose p,
+  .prose li,
+  .note,
+  .accordion__panel {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+  }
+
+  /* A last resort for anything the hyphenator cannot break, such as a URL:
+     overflow rather than a line with two words on it. */
+  .prose p,
+  .prose li {
+    overflow-wrap: break-word;
+  }
+
+  .card-title {
+    font-size: 1.625rem;
+  }
 }
 
 /* ----------------------------------------------------------
