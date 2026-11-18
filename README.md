@@ -15,6 +15,7 @@ and cannot be static, and applications are closed.
 | --- | --- |
 | `prize.html` | The synopsis — “I popoli del mare” |
 | `info.html` | Prize information — intro text, FAQ accordion, documentation download |
+| `certificate.html` | The prize certificate: a verbatim copy of `prize-tag/assets/signature.json`, the file shown on the prize tag |
 | `styles.css` | The whole design system; all colour/font/radius tokens live in the `:root` block |
 | `assets/` | ctrlshift logo, logomark, hero image |
 | `Visions_Chapter_II.pdf` | The downloadable call documentation |

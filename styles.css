@@ -280,6 +280,20 @@ ul {
   margin-bottom: 0.5rem;
 }
 
+/* Raw file contents (certificate.html). Long unbroken strings such as
+   signatures and keys wrap anywhere instead of scrolling sideways. */
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+}
+
 /* ----------------------------------------------------------
    BUTTONS
    ---------------------------------------------------------- */
@@ -477,6 +491,11 @@ ul {
 
   .card-title {
     font-size: 1.625rem;
+  }
+
+  .code {
+    padding: 0.5rem;
+    font-size: 0.6875rem;
   }
 }
 
